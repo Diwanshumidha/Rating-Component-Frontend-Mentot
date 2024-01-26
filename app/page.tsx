@@ -1,4 +1,5 @@
 'use client'
+import Image from "next/image";
 import { redirect, useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
@@ -21,7 +22,7 @@ export default function Home() {
     <main className=" max-sm:px-300 w-full h-svh flex items-center bg-very-dark-blue  text-white    ">
       <div className=" max-w-[412px] p-400  w-full flex flex-col gap-400 gradient-black rounded-[2rem] mx-auto">
         <div className=" w-[50px] aspect-square rounded-full bg-white/10 grid place-content-center" aria-hidden>
-          <img src="/images/icon-star.svg" alt="" />
+          <Image width={20} height={20} src="/images/icon-star.svg" alt="" />
         </div>
         <div className=" space-y-[10px]">
           <h2 className="text-600 font-700">How did we do?</h2>
@@ -32,7 +33,7 @@ export default function Home() {
           <div className="flex gap-[1.375rem] leading-[1] ">
 
           {[1,2,3,4,5].map((item)=>(
-            <input onClick={()=>setActive(item)}  className={`w-[50px] aspect-square rounded-full grid place-content-center cursor-pointer  ${active === item?"bg-orange":"bg-white/10  hover:bg-medium-grey focus:bg-medium-grey "}`} type="button" value={item}/>
+            <input key={item} onClick={()=>setActive(item)}  className={`w-[50px] aspect-square rounded-full grid place-content-center cursor-pointer  ${active === item?"bg-orange":"bg-white/10  hover:bg-medium-grey focus:bg-medium-grey "}`} type="button" value={item}/>
           ))}
 
           
